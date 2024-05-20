@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+html {
+ font-family: Pretendard; 
+}
+body {
+  margin: 0;
+  
+}
+  
+html, body , .container {
+  width: 100%;
+}

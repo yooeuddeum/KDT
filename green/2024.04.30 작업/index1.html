@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="index1.js"></script>
+  <div id="root"></div>
+  <button id="btn">클릭하시오</button>
+  <script>
+  
+    // 아이디가 root인 div를 변수 root에 할당해줘
+    const root = document.getElementById('root');
+    // console.log('root');
+    const btn = document.getElementById('btn');
+    
+    console.log(btn);
+ 
+    // 변수 ul에 ul태그를 만들어서 넣어줘
+    const ul = document.createElement('ul');
+
+    // 할당된 root에 자식으로 ul을 넣어줘
+    root.appendChild(ul);
+    
+    // 변수 names로 만들어 놓은 배열을 조건이 충족 될때까지 반복해서 1씩 증가해줘
+    for(let i = 0; i < names.length; i++){
+      
+      // li태그를 만들어주고 만든 li태그를 변수 li에 넣어줘
+      const li = document.createElement('li');
+      
+      // 할당된 ul변수에 자식으로 만들어 놓은 li태그를 넣고 추가해줘
+      ul.appendChild(li);
+
+      // 자식으로 li인 변수를 텍스트로 만들어놨던 names의 배열을 넣어줘 
+      li.innerHTML = names[i];
+    }
+
+    btn.addEventListener('click', () => {
+      ul.style.color = "orange";
+      ul.style.listStyleType = "none";
+      ul.style.padding = "0";
+    });
+    </script>
+    </body>
+    </html>
+      
+
+      
+
+
+      
+
+      
+      
+
+      
+    
+      
+
+      
+    
+
+    
+
+    
+  
+ 
+  
+    
+    
+
+      
+
+    
+
+    
+

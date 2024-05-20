@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-areas: 
+      "a b c c d"
+      "a b e e e"
+      "a f g h i"
+      "a f g h i";
+      width: 50%;
+      height: 500px;
+      border: 3px solid black;
+      gap: 10px;
+      padding: 10px;
+    }
+      
+    .container > div:first-child {
+      grid-area: a;
+      background-color: red;
+    }
+    .container > div:nth-child(2) {
+      grid-area: b;
+      background-color: blue;
+    }
+    .container > div:nth-child(3) {
+      grid-area: c;
+      background-color: green;
+    }
+      
+    .container > div:nth-child(4) {
+      grid-area: d;
+      background-color: gray;
+    }
+    .container > div:nth-child(5) {
+      grid-area: e;
+      background-color: orange;
+    }
+    .container > div:nth-child(6) {
+      grid-area: f;
+      background-color: yellow;
+    }
+    .container > div:nth-child(7) {
+      grid-area: g;
+      background-color: gold;
+      
+    }
+    .container > div:nth-child(8) {
+      grid-area: h;
+      background-color: silver;
+    }
+    .container > div:nth-child(9) {
+      grid-area: i;
+      background-color: darkolivegreen;
+    }
+      
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
+      
+      
+      
+      
+    
+
+      
+    

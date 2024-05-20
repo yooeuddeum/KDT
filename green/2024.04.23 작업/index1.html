@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <h1>CSS는 디자이너에게 넘겨주기</h1>
+    <p>CSS는 프로그래밍이 아닌, 디자인에 가까운 직업이다.</p>
+    <p>개발자는 CSS의 코어를 이해했기 때문에, CSS 대신에 직접 스크립트로 스타일을 조작 할 수 있다.</p>
+    <p>태그는, 객체라는 사실을 잊지 말자</p>
+    <script>
+      var root = document.getElementById('root');
+      console.log(root); //문서에서 id를 근거로 식별한 요소를 변수 root를 할당
+      // console.dir(root); //root 객체의 속성을 출력 (속성,property) 출력
+      // console.log(root.children); // 속성중에 children , html에서 수 없이 확인했던 "자식요소"에 접근
+      console.dir(root);
+      // root.children[0].innerHTML = "zzzzzz";
+      // root.children[1].innerHTML = "dddd";
+      // root.children[2].innerHTML = "qqqq";
+      // root.children[3].innerHTML = "weqqqq";
+      
+      // HTML은 객체이면서도, 묶어서 확인하면 배열처럼 처리
+      for(let i = 0; i < root.children.length; i++){
+        // console.log(root.children[i]); // 자식 요소들을 순차적으로 출력
+        // root.children[i].innerHTML = "도로로";
+      }
+
+         
+
+
+      // css를 사용하지 않고, 스크립팅으로 스타일 "명령"
+      root.style.display = "flex";  //root라는 객체의 style속성에 display 속성을 주고 , flex값을 할당함
+      root.style.flexDirection = "column"; // root라는 객체의 flexDirection 속성을 주고 , column 값을 할당
+      root.style.alignItems = "center"; // root라는 객체의 alignItems 속성을 주고 , center 값을 할당
+      root.style.justifyItems = "center"; // root라는 객체의 justifyItems 속성을 주고 , center 값을 할당
+      root.style.color = "gold"; // root라는 객체의 color 속성을 주고 , gold 값을 할당
+      root.style.background = "red";
+      root.children[0].style.color ="blue"; 
+      root.children[1].style.border ="3px solid silver"; 
+      root.children[2].style.background = "green"; 
+      root.children[3].style.fontSize ="3rem"; 
+    </script>
+  </div>
+</body>
+</html>

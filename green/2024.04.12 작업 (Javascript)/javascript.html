@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- root은 body태그 대신 사용 부모 요소 -->
+  <div class="root">
+    <h1>유으뜸</h1>
+    <p>유으뜸</p>
+  </div>
+  <script>
+    window.console.log(document.getElementsByTagName('h1'));
+    window.console.log(document.getElementsByTagName('h1')[0].innerText);
+
+    // h1이라는 변수 선언 후 스타일 할당 방식
+    var h1 = document.getElementsByTagName('h1')[0];
+    h1.style.color = "red";
+    h1.style.backgroundColor = "gray";
+    h1.innerHTML = "euddeum";
+
+    var p = document.getElementsByTagName('p')[0];
+    p.style.color = "blue";
+    
+    
+    //스타일 할당 방식
+
+    // document.getElementsByTagName('h1')[0].innerText = "yooeuddeum";
+    // document.getElementsByTagName('h1')[0].style.color = "pink";
+    // document.getElementsByTagName('h1')[0].style.backgroundColor = "gray";
+
+    // document.getElementsByTagName('p')[0].innerText = "euddeum";
+    // document.getElementsByTagName('p')[0].style.color = "pink";
+    // document.getElementsByTagName('p')[0].style.backgroundColor = "gray";
+  </script>
+</body>
+</html>
+
+
+
+    
+    
+
+  

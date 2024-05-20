@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subejct-2 훈련생명</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="basic-data.js"></script>
+  <script src="example-3.js"></script>
+  <script>
+    // body 태그에 있는 id 선택자 div를 가져왔음
+    var root = document.getElementById('root');
+    // console.log(root);
+    //변수 선언한 names를 불러와서 반복문을 실행했고 반복문 함수 안에 변수 선언과 동시에
+    //자바스크립트 자체에서 div요소를 생성해줬고, 부모요소인 root 객체에 자식으로 추가해줬음
+    for(let i = 0; i < names.length; i++){
+    const div = document.createElement("div");
+    root.appendChild(div);
+    div.innerText = names[i];
+    // console.log(names[i]);
+};
+
+
+//* 601px이상 900px 이하
+const pol = matchMedia("screen and (min-width: 601px) and (max-width: 900px)");
+// *600px 이하
+const sol = matchMedia("screen and (max-width:600px)");
+// console.log(pol);
+// console.log(sol);
+const mediaHandler = () => {
+    if(pol.matches){
+        Object.assign(root.style, styles.mediaQueries["min-width: 601px and max-width: 900px"].root);
+        for(const child of root.children){
+            Object.assign(child.style, styles.mediaQueries["min-width: 601px and max-width: 900px"].root.children);
+        }
+    } else if(sol.matches){
+        Object.assign(root.style, styles.mediaQueries["max-width: 600px"].root);
+        for(const child of root.children){
+            Object.assign(child.style, styles.mediaQueries["max-width: 600px"].root.children);
+        }
+    } else {
+        Object.assign(root.style, styles.root);
+        for(const child of root.children){
+            Object.assign(child.style, styles.root.children);
+        }
+    }
+}
+window.addEventListener('resize', mediaHandler);
+    
+  </script>
+</body>
+</html>
+
+      
+
+
+
+     
+    
+    
+      
+    
+    
+       
+       
+     
+
+
+    

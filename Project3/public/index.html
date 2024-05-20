@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserData</title>
+    <style>
+      #btn {
+        position: absolute;
+        left: 10%;
+        top: 10px;
+        width: 50px;
+        height: 45px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/test" method="get">
+      <label for="user_id"></label>
+      <input
+        type="text"
+        id="user_id"
+        name="user_id"
+        placeholder="아이디 입력"
+      /><br />
+      <label for="user_pw"></label>
+      <input
+        type="password"
+        id="user_pw"
+        name="user_pw"
+        placeholder="비밀번호 입력"
+      /><br /><br />
+      <button id="btn" type="submit">전송</button>
+    </form>
+    <script src="input.js"></script>
+  </body>
+</html>
+

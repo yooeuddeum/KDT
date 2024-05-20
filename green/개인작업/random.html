@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 숫자 출력해보기</title>
+</head>
+<style>
+    #res {
+        background-color: yellow;
+        border: 3px solid red;
+        width: 500px;
+        height: 300px;
+        overflow: auto;  /*스크롤 만드는것 */   
+    }
+</style>
+<body>
+    <input type="button" value="START" onclick="randProc()"><br>
+    <!-- <h1>출력위치</h1> -->
+    <div id="res">
+      <!-- <p>1,2,3,4,5</p>
+      <p>6,7,8,9,10</p> -->
+   </div>
+   <script>
+
+    function randProc(){
+        
+        let numArr = [];
+        // 1~ 500 까지의 숫자 9개 생성
+        for(let i = 0; i < 9; i++){
+        numArr[i] = parseInt(Math.random() * 500 + 1); //Math.random() 랜덤의 숫자 //parseInt() 정수
+        }
+        // console.log(numArr);
+        
+        // id가 res인 div에 숫자 9개 추가(p태그를 사용) // p태그 생성해줌
+        const ptag = document.createElement("p");  //예시 -> <p></p>
+        
+        // 생성한 p태그에 text 넣어줬음.
+        // ptag.innerHTML = "새로 생성한 p태그 입니다."; //<p>새로 생성한 p태그 입니다.</p>
+        ptag.innerHTML = numArr.toString(); // 배열에 있는 애들을 콤마 표시를 준다. 
+        
+        // div 요소를 가져와서 p태그를 넣어줬음.
+        const res = document.getElementById("res");
+        res.append(ptag);
+        
+    }
+        
+</script> 
+  </body>
+  </html>

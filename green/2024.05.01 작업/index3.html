@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    document.body.style.padding = "0";
+    document.body.style.margin = "0";
+    // root
+    let root = document.getElementById("root");
+    // console.log(root);
+    root.textContent = "연회색";
+    // nav
+    let nav = document.createElement("nav");
+    nav.textContent = "회색";
+    root.appendChild(nav);
+    //  div
+    let div = document.createElement("div");
+    root.appendChild(div);
+    div.textContent = "버튼";
+    console.log(div);
+    root.style.width = "100vw";
+    root.style.height = "100vh";
+    root.style.backgroundColor = "#D9D9D9";
+    root.children[0].style.width = "50vw";
+    root.children[0].style.height = "100vh";
+    root.children[0].style.backgroundColor = "#B0B0B0";
+    root.children[0].style.position = "absolute";
+    root.children[0].style.zIndex = 1;
+    root.children[1].style.width = "100px";
+    root.children[1].style.height = "100px";
+    root.children[1].style.backgroundColor = "#808080";
+    root.children[1].style.margin = "50px";
+    root.children[1].style.position = "absolute";
+    root.children[1].style.zIndex = 1;
+    const navArea = root.children[0];
+    const divBtn = root.children[1];
+  
+    function btn() {
+      if(navArea.style.display != "none"){
+        navArea.style.display = "none";
+      }else {
+        navArea.style.display = "";
+      }
+      // navArea.style.display = "none";
+    }
+    divBtn.addEventListener("click", btn);
+  </script>
+</html>

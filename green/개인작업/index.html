@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .btn {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+  #menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu-list {
+    text-decoration: none;
+    border: 5px solid black;
+    font-size: 2rem;
+  }
+
+  .menu-list:hover {
+    cursor: pointer;
+  }
+
+  .menu-active {
+    background: dodgerblue;
+    color: red;
+  }
+
+</style>
+<body>
+  <!-- 4개의 메뉴중 클릭했을때 1개의 메뉴만 활성화 시켜보기 -->
+  <header id="menu">
+    <a href="#" class="menu-list">menu 1</a>
+    <a href="#" class="menu-list">menu 2</a>
+    <a href="#" class="menu-list">menu 3</a>
+    <a href="#" class="menu-list">menu 4</a>
+  </header>
+  <script>
+
+    var menuList = document.querySelectorAll('.menu-list');
+    // console.log(menuList);
+    
+    function clickMenuHandler(){
+      for(var i = 0; i < menuList.length; i++){
+        menuList[i].classList.remove('menu-active')
+      };
+      this.classList.add('menu-active');
+    };
+    
+    for(var i = 0; i < menuList.length; i++){
+      menuList[i].addEventListener('click', clickMenuHandler)
+    };
+    </script>
+  </body>
+  </html>
+    
+
+    
+        
+       
+    
+
+      
+    
+
+      
+
+
+  
+    
+    
+
+
+
+    

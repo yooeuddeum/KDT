@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #name {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="name"></div>
+</body>
+<script>
+    // 사용자에게 이름을 입력받음
+    const username = prompt("이름을 입력하세요.");
+    
+    // 사용자에게 색상명을 입력받음
+    const usercolor = prompt("색상명을 입력하세요.");
+
+    // 이름을 div에 넣어주고 입력받은 색상으로 입력받은 이름의 color로 변경했음
+    const func = function(name , color){
+        // const divE1 = document.querySelector("#name");
+        const divE1 = document.getElementById("name");
+        // getElementById() = 아이디인 요소만 가능
+        
+        // 이름을 div 태그 안에 넣어줬음 innerHTML 이용
+        divE1.innerHTML = name;
+        // 이름의 색을 입력받은 색상명으로 바꿔줬음.
+        divE1.style.color = color;
+    };
+       
+    func(username , usercolor);
+
+    
+</script>
+</html>
+   

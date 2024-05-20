@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: darkgray;
+      margin: 0;
+    }
+      
+    #root {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 50px;
+      width: 300px;
+      
+    }
+    #signup-form {
+      position: relative;
+      
+    }
+
+    .form-group {
+      margin-bottom: 50px;
+    }
+      
+
+    .form-group > label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group > input {
+      width: 100%;
+      padding: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .color_item {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+        <div class="color_item"></div>
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" placeholder="정자이름과 핸드폰 뒷자리 4자리를 작성해주세요.">
+        <div class="color_item"></div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="password">비밀번호 확인</label>
+        <input type="password" id="password" name="password" placeholder="위 비밀번호와 동일하게 작성해주세요.">
+        <div class="color_item"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">이메일 주소</label>
+        <input type="email" id="email" name="email" placeholder="이메일 주소 양식에 맞게 작성해주세요.">
+        <div class="color_item"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">핸드폰 번호</label>
+        <input type="tel" id="email" name="email" placeholder="핸드폰 번호를 입력하세요.">
+        <div class="color_item"></div>
+      </div> -->
+    </form>
+  </div>
+  <script src="className.js"></script>
+</body>
+</html>

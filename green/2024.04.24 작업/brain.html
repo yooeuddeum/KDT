@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <h1 onclick="b()">클릭</h1>
+  </div>
+  <script>
+    // 2+2*2 = 6
+    function a(first, second, third){
+      console.log(first + second * third);
+    }
+    a(12, 54, 31);
+    a(14, 50, 23);
+    a(32, 94, 21);
+
+    function b(first, second){
+      let root = document.querySelector('#root');
+      if(first == 400){
+        first = "메롱";
+        return first + second;
+      }
+      root.children[0].innerHTML = "Hello";
+    };
+    console.log(b(400, 500));
+    console.log(b(12, 50));
+    console.log(b(40, 50));
+  </script>
+</body>
+</html>
+
+    
+      
+
+    
+
+
+
+
+
+  
+
+    
+    
+    
+      
+       
+
+    

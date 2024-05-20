@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    body > div > h1 {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <h1>유으뜸</h1>
+  </div>
+  <script>
+    // const root = document.getElementById('root');
+    // const roots = document.querySelector('#root h1');
+    const h1 = document.getElementsByTagName('h1');
+    // console.log(root);
+    // console.log(roots);
+    // console.log(h1);
+
+    // root.children[0].style.color = "blue";
+    // roots.style.color = "blue";
+    // h1[0].style.color = "blue";
+    console.log(h1[0].style.color);
+  </script>
+</body>
+</html>

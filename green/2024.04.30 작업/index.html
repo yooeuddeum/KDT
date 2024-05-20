@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #button-click {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <button id="button-click">클릭</button>
+  <script>
+
+    // 아이디가 root인 div를 변수 root에 가져와줘
+    const root = document.getElementById('root');
+    // console.log(root);
+    
+    // 아이디가 button-click인 버튼 태그를 btn 변수에 가져와줘
+    const btn = document.getElementById('button-click');
+    // console.log(btn);
+
+    btn.addEventListener('click', () => {
+
+      // ptagElem 변수안에 p태그를 만들어서 넣어줘
+      let ptagElem = document.createElement('p');
+      // console.log(ptagElem);
+
+      // 만들어 놓은 ptagElem 변수에 텍스트 Value값으로 안녕하세요! 반갑습니다를 유으뜸입니다를 적어서 넣어줘
+      ptagElem.innerHTML = "안녕하세요! 반갑습니다 유으뜸입니다.";
+      // console.log(ptagElem.innerHTML);
+
+      //문자열로 넣은 텍스트의 Value 값으로 ptagElem이라는 변수를 부모인 root 변수 div안에 자식요소를 버튼을 누를때마다 텍스트의 Value값을 추가해줘
+      root.appendChild(ptagElem);
+      // console.log(root.appendChild(ptagElem));
+    });
+  </script>
+</body>
+</html>

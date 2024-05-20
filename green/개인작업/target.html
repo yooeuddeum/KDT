@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .btn {
+      font-size: 2rem;
+      margin-top: 50px;
+    }
+    #menu {
+      display: flex;
+      gap: 20px;
+      background-color: bisque;
+    }
+
+    .menu-list {
+      text-decoration: none;
+      border: 5px solid black;
+      font-size: 2rem;
+    }
+
+    .menu-list:hover {
+      cursor: pointer;
+    }
+
+    .menu-active {
+      background: dodgerblue;
+      color: red;
+    }
+  </style>
+  <body>
+    <!-- <form onclick="alert('form')">FORM
+    <div onclick="alert('div')">DIV
+      <p onclick="alert('p')">P</p>
+    </div>
+  </form> -->
+
+    <!-- 4개의 메뉴중 클릭했을때 1개의 메뉴만 활성화 시켜보기 -->
+    <header id="menu">
+      <a href="#" class="menu-list" data-menu="1">menu 1</a>
+      <a href="#" class="menu-list" data-menu="2">menu 2</a>
+      <a href="#" class="menu-list" data-menu="3">menu 3</a>
+      <a href="#" class="menu-list" data-menu="4">menu 4</a>
+    </header>
+
+    <script>
+      var menu = document.querySelector("#menu");
+      var currentMenu = "";
+      console.log(menu);
+
+      function clickMenuHandler(e) {
+        if (currentMenu) {
+          currentMenu.classList.remove("menu-active");
+        }
+        // console.log(e.target);
+        // console.log(this);
+        // console.log(e.currentTarget);
+        // console.log(this === e.currentTarget);
+
+        e.target.classList.add("menu-active");
+        currentMenu = e.target;
+      }
+
+      menu.addEventListener("click", clickMenuHandler);
+
+      // // * 메뉴바 최상위 부모
+      // const menu = document.querySelector("#menu");
+      // // * 메뉴 클릭 이벤트 감지
+      // menu.onclick = (e) => {
+      //   // * 클릭 시점에서의 menu의 자식들 받아오기, children은 JS 자체에서 "유사 배열"로 잡혀있기 때문에 받아와질 때 배열로 받아짐
+      //   const menu_childrens = menu.children;
+      //   /*
+      //    * 받아온 menu의 자식들을 배열의 길이만큼 한 번씩 쭉 훑어보는 반복문
+      //    ! 자식들을 한 번씩 훑어보면서 클래스 "menu-active"의 존재 유무와는 별개로 일단 다 remove시킴
+      //    */
+      //   for (let i = 0; i < menu_childrens.length; i++) {
+      //     menu_childrens[i].classList.remove(`menu-active`);
+      //   }
+      //   // console.log(e.target);
+      //   // * menu-active 싹 다 빼논 상태에서 "이벤트 대상"에게만 클래스 부여
+      //   e.target.classList.add(`menu-active`);
+      // };
+    </script>
+  </body>
+</html>

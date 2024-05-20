@@ -1,0 +1,90 @@
+:root {
+  --color: black;
+  --color1: red;
+  --color2: blue;
+  --color3: orange;
+  --color4: green;
+  --color5: gray;
+  --color6: gold;
+  --color7: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  width: 75vw;
+  height: 100vh;
+  background: url(https://cdn.pixabay.com/photo/2020/04/30/20/14/sky-5114501_640.jpg) fixed;
+}
+
+button {
+  position: absolute;
+  font-size: 2rem;
+  width: 200px;
+  height: 100px;
+  left: 82%;
+  top: 150px;
+}
+
+#page {
+  position: absolute;
+  left: 77%;
+  top: 40%;
+  width: 400px;
+  height: 400px;
+}
+  
+#wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+  "header header header"
+  "section section section"
+  "nav main aside"
+  "footer footer footer";
+  border: 3px dashed var(--color);
+  gap: 15px;
+  height: 940px;
+}
+  
+#center {
+  display: grid;
+  place-items: center;
+}
+
+.font {
+  color: var(--color7);
+  font-weight: bold;
+}
+
+
+header {
+  grid-area: header;
+  border: 3px solid var(--color1);
+}
+section {
+  grid-area: section;
+  border: 3px solid var(--color2);
+}
+nav {
+  grid-area: nav;
+  border: 3px solid var(--color3);
+}
+main {
+  grid-area: main;
+  border: 3px solid var(--color4);
+}
+aside {
+  grid-area: aside;
+  border: 3px solid var(--color5);
+}
+footer {
+  grid-area: footer;
+  border: 3px solid var(--color6);
+}
+  
+  

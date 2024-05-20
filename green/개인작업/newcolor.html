@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>newColor</title>
+    <link rel="styleSheet" href="./css/new.css" />
+    <link rel="styleSheet" href="./css/home.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>새 컬러 등록하기</h1>
+        <a href="javascript:history.go(-1)">
+          <!--비동기식으로 한페이지 이전으로 돌아가기 go 메서드  -->
+          <img src="/개인작업/img/x.svg" />
+        </a>
+      </header>
+      <section>
+        <h2 class="section-heading">MBTI</h2>
+        <div class="mbti-options">
+          <div class="mbti-option">
+            <span class="mbti-char">E</span>
+            외향형
+          </div>
+          <div class="mbti-option">
+            <span class="mbti-char">I</span>
+            내향형
+          </div>
+        </div>
+        <div class="mbti-options">
+          <div class="mbti-option">
+            <span class="mbti-char">S</span>
+            감각형
+          </div>
+          <div class="mbti-option">
+            <span class="mbti-char">N</span>
+            직관형
+          </div>
+        </div>
+        <div class="mbti-options">
+          <div class="mbti-option">
+            <span class="mbti-char">T</span>
+            사고형
+          </div>
+          <div class="mbti-option">
+            <span class="mbti-char">F</span>
+            감정형
+          </div>
+        </div>
+        <div class="mbti-options">
+          <div class="mbti-option">
+            <span class="mbti-char">J</span>
+            판단형
+          </div>
+          <div class="mbti-option">
+            <span class="mbti-char">P</span>
+            인식형
+          </div>
+        </div>
+      </section>
+      <footer>
+        <h2 class="section-heading">Color</h2>
+        <div class="color-input-container">
+          <input class="color-input" type="text" value="#9441FF" />
+          <span class="color-input-chip"></span>
+        </div>
+      </footer>
+      <button id="submit">컬러 등록</button>
+    </div>
+    <script src="./js/MBTI.js"></script>
+  </body>
+</html>

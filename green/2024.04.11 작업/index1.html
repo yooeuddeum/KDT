@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    /* CSS 변수 선언 */
+    :root {
+      --eutteum: black
+    }
+    /* CSS 변수 선언 끝 */
+    
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body > div {
+      background-color: aquamarine;
+    }
+
+    body > div > div {
+      width: 100vw;
+      height: 100vh;
+    }
+/* background set */
+    body > div > div:nth-child(1) {
+      background-color: var(--eutteum);
+    }
+    body > div > div:nth-child(2) {
+      background-color: red;
+    }
+    body > div > div:nth-child(3) {
+      background-color: blue;
+    }
+
+    body > div > div:nth-child(2) {
+      width: 50vw;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+</body>
+</html>

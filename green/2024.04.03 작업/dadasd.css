@@ -1,0 +1,157 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header h1 {
+  color: brown;
+  background-color: beige;
+  border: 2px dashed black;
+  border-radius: 10px;
+  width: 29%;
+  position: absolute;
+  left: 3%;
+  top: 85%;
+}
+  
+
+.main {
+  width: 30%;
+  height: 50%;
+  background-color: aliceblue;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.main span {
+  font-size: 30px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.footer div:nth-child(1) {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: aliceblue;
+  border: 2px solid black;
+  border-radius: 50%;
+  left: 20%;
+  bottom: -58px;
+}
+.footer div:nth-child(2) {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: aliceblue;
+  border: 2px solid black;
+  border-radius: 50%;
+  left: 18%;
+  bottom: -120px;
+  
+}
+.footer div:nth-child(3) {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: aliceblue;
+  border: 2px solid black;
+  border-radius: 50%;
+  left: 16%;
+  bottom: -170px;
+}
+  
+  
+#wrap {
+  width: 400px;
+  height: 400px;
+  margin: 100px auto;
+  position: relative;
+}
+#wrap .card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: rotateCube 3s infinite linear;
+  transform-style: preserve-3d;
+}
+#wrap .card > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 3px solid white;
+  box-shadow: 0px 0px 40px 5px yellow;
+}
+#wrap .card > div:nth-child(1) {
+  /* 
+    hsla()
+    h : hue - 색상(=색조 =색깔) 0 ~ 360
+    s : saturation - 채도(=컬러 정도, 음영) 0 ~ 100%
+    l : lightness - 명도(=밝기) 0 ~ 100%
+    a : alpha - 불투명도 0.0 ~ 1.0
+
+    transform - 요소에 회전, 크기 조절, 기울이기, 이동 효과를 부여
+    rotate(회전)
+    scale(사이즈조절)
+    skew(왜곡 / 기울림)
+    translate(이동)
+    
+    transform-style -  3D 공간에 배치되는지 아니면 요소 평면에서 평면화되는지 여부를 설정
+    translate - 요소의 위치를 수평 또는 수직 방향으로 변경하거나, 수평 및 수직 방향으로 변경
+*/
+  background-color: hsla(0, 100%, 50%, 0.5);
+  transform: translateZ(200px);
+}
+#wrap .card > div:nth-child(2) {
+  background-color: hsla(60, 100%, 50%, 0.5);
+  transform: translateX(-200px) rotateY(-90deg);
+}
+#wrap .card > div:nth-child(3) {
+  background-color: hsla(120, 100%, 50%, 0.5);
+  transform: translateX(200px) rotateY(90deg);
+}
+#wrap .card > div:nth-child(4) {
+  background-color: hsla(180, 100%, 50%, 0.5);
+  transform: translateZ(-200px);
+}
+#wrap .card > div:nth-child(5) {
+  background-color: hsla(240, 100%, 50%, 0.5);
+  transform: translateY(200px) rotateX(90deg);
+}
+#wrap .card > div:nth-child(6) {
+  background-color: hsla(320, 100%, 50%, 0.5);
+  transform: translateY(-200px) rotateX(-90deg);
+}
+
+/*@keyframes - 애니메이션 시퀀스를 따라 키프레임(또는 웨이포인트)에 대한 스타일을 정의하여 CSS 애니메이션 시퀀스의 중간 단계를 제어 
+*/
+@keyframes rotateCube {
+  from {
+    transform: translateZ(-500px) translateX(-500px) translateY(500px)
+      rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: translateZ(500px) translateX(500px) translateY(-500px)
+      rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+  }
+}

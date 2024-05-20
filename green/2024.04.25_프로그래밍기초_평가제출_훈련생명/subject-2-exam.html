@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subejct-2 훈련생명</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="/20240425_프로그래밍기초_평가제출_훈련생명/basic-data.js"></script>
+  
+  <script>
+    // root라는 id를 가진 div를 가져왔음
+    var root = document.getElementById('root');
+
+    for(let i = 0; i<names.length; i++){
+      const div = document.createElement("div");
+      root.appendChild(div);
+      div.innerText = names[i];
+    }
+    // 전체선택자(*)를 가져왔음
+    var attr = document.querySelector('*');
+    
+    // 부모요소 안에 있는 자식요소들의 div를 가져오기 위해 부모요소의 경로를 이용해 그 자식요소들을 가져왔음
+    var rootDiv = root.querySelectorAll('#root div');
+    
+    // console.log(attr);
+
+    // 전체선택자를 가져와서 동적인 방식으로 css를 주었음.
+    attr.style.margin = 0;
+    attr.style.padding = 0;
+    attr.style.boxSizing = "border-box";
+    attr.style.overFlowX = "hidden";
+
+    // 부모요소의 전체적인 css를 주기 위해 동적인 방식으로 css를 주었음
+    root.style.display = "grid";
+    root.style.gridTemplateColumns = "repeat(5, 1fr)";
+    root.style.gridTemplateRows = "repeat(4, 1fr)"; 
+    root.style.gap = "1vw";
+    root.style.width = "100vw";
+    root.style.minHeight = "100vh";
+    root.style.height = "auto";
+    root.style.margin = "2vw auto";
+    root.style.gridAutoRows = "minmax(150px, auto)";
+    
+    // 자식요소의 전체적인 css는 20개의 div를 같은 속성을 부여해야기 때문에 반복문을 사용해서 같이 묶어줬음.
+    
+    for(let i = 0; i < rootDiv.length; i++){
+      rootDiv[i].style.display = "flex";
+      rootDiv[i].style.alignItems = "center";
+      rootDiv[i].style.justifyContent = "center";
+      rootDiv[i].style.fontSize = "1rem";
+      rootDiv[i].style.background = "#f0f0f0";
+      rootDiv[i].style.border = "1px solid #ccc ";
+      rootDiv[i].style.padding = "1vw";
+     };
+
+
+
+    function mediaHandler()
+    {
+      if( window.innerWidth <= 600)
+      {
+        // 스타일 적용해
+        root.style.gridTemplateColumns = "repeat(1, 1fr)";
+        root.style.gridAutoRows = "150px";
+        
+      }
+
+
+      else if( window.innerWidth > 600 && window.innerWidth < 900)
+      {
+        // 스타일 적용
+        root.style.gridTemplateColumns = "repeat(3, 1fr)";
+        root.style.gridAutoRows = "minmax(150px, auto)";
+        
+      }
+
+      else
+      {
+        // 원래 스타일 적용
+        root.style.gridTemplateColumns = "repeat(5, 1fr)";
+        root.style.gridAutoRows = "150px";
+      }
+    };
+    
+    
+    window.addEventListener('resize', mediaHandler);
+
+    
+
+
+
+  </script>
+</body>
+</html>
+    
+    
+
+
+
+    
+    
+
+ 
+   
+
+
+
+  

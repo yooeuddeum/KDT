@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(108, 175, 241);
+  }
+  header {
+    text-align: center;
+    margin: 200px 500px;
+  }
+    
+
+  #btn {
+    font-size: 2rem;
+    margin: 10px 900px;
+  }
+</style>
+<body>
+  <header>
+    <h1>객체란?</h1>
+    <p>객체는 관련된 데이터와 함수의 집합입니다. 일반적으로 여러 데이터와 함수로 이루어지는데, 
+      객체 안에 있을 때는 보통 프로퍼티와 메소드라고 부릅니다. 대표적으로 예시로는 미리 만들어두고
+      필요할때 꺼내서 쓰는 방식과 대충 만들어 놓고 필요할때 즉흥적으로 만드는 방식이 있습니다.
+      첫번째로 미리 만들어 놓는건 정적인 방식이라고 표현합니다 예로는 저는 웹 페이지를 사용할때
+      이용하게 되는 회원가입 구조를 잡았습니다 고객의 정보들은 제공 받지 않는 이상 알지 못합니다.
+      대신의 회원가입을 하기 위해 필요한 문서 양식은 존재합니다. 두번째로는 필요할 때 즉흥적으로
+      만드는 방식으로는 자바스크립트의 함수로 예를 뒀습니다. 함수로 기술 또는 기능적으로 사용하고
+      싶을때 필요선에 있어서 다양하게 즉흥적으로 코드를 짜서 사용할 수 있습니다.
+      또한 initialize(초기화)가 있습니다. 이것은 사용할 클래스, 구조체, 또는 열거형의 인스턴스를 
+      준비하는 과정입니다. 사람을 몸 구조를 예로 뒀을때 사람의 몸은 시작점(초기화)가 될것이고
+      식별자의 역할은 사람의 뇌가 될 것이고 선택자의 역할은 신체 구조가 될 것 같습니다.
+      사람이라는걸 표현하기 위해 거울로든 상대방 눈으로든 확인이 되야 사람인지 알 수 있습니다
+      그래서 뭔가를 알기 위해 인지하기 위해 준비과정이라고 생각되서 시작점(초기화)으로 기준을
+      잡았고, 식별자는 이 사람이 남자인지 여자인지 손가락에 뭐를 착용하고 있는지등등 인지를 하기 위해서
+      뇌를 통해 생각을 거쳐서 판단을 해야기 때문에 식별자의 기준을 뇌로 잡았고,선택자로는 사람의 팔 다리
+      얼굴 코 입 귀 등등으로 인해 기준점으로 역할을 수행할 수 있는게 다 다르고 사용 될 용도가 다르기 때문에
+      기준점을 신체 구조로 잡았습니다. 이로 인해 객체는 조회하고 감지하고 확인하는 여러가지의 묶음구조로
+      이해하면 될 것 같습니다.
+    </p>
+  </header>
+  <button id="btn">Click</button>
+
+  <script>
+    const header = document.querySelector('header');
+    const heading = document.querySelector('h1');
+    const para = document.querySelector('p');
+    const btn = document.getElementById('btn');
+    
+    console.log(header);
+
+    
+    function btnClickHandler() {
+      header.style.border = "5px solid";
+      heading.style.color = "pink";
+      para.style.fontWeight = "bold";
+    }
+      
+      
+    btn.addEventListener('click' , btnClickHandler );
+  </script>
+</body>
+</html>
+      
+      
+      
+    
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>access</title>
+</head>
+<body>
+  <script>
+    // 변수 선언은 주소 만들기
+    // 객체가 할당까지 다 끝난 상태 (초기화 상태)
+
+    // 미리 만든 방식
+    var monsterDrink = {
+    // key를 만들어주고 문자열 값(value)를 만들어줬다.
+      name: "몬스터",
+      brand: "코카콜라",
+    };
+    window.console.log(monsterDrink.name);
+    window.console.log(monsterDrink.brand);
+
+    // 필요할때 할당해서 만드는 방식
+    var hotsixDrink = {};
+    hotsixDrink.name = "핫식스";
+    hotsixDrink.brand = "롯데";
+
+    console.log(hotsixDrink);
+    
+    
+    
+    var hotsixDrink = ["핫식스","롯데",1,2,3,4,5,6];
+    
+    console.log(hotsixDrink[5]);
+
+
+     
+  </script>
+</body>
+</html>
+
+

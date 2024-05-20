@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div id="white"></div>
+    <div id="black"></div>
+  </div>
+  <script>
+    let root = document.getElementById('root');
+    // console.log('root');
+    let white = document.querySelector('#white');
+    // console.log('white');
+    white.style.background = "gray";
+    white.innerHTML = "안녕하세요";
+    white.style.width = "300px";
+    white.style.height = "300px";
+    white.style.display = "flex";
+    white.style.justifyContent = "center";
+    white.style.alignItems = "center";
+    
+    
+    let black = document.getElementById('black');
+    // console.log('black');
+    black.style.background = "orange";
+    black.innerHTML = "반갑습니다";
+    black.style.width = "300px";
+    black.style.height = "300px";
+    black.style.display = "flex"
+    black.style.justifyContent = "center";
+    black.style.alignItems = "center";
+
+
+
+    // 1.white를 클릭하면 사라지게 해줘
+
+    white.addEventListener('click', whiteControl => {
+      white.style.display = "none";
+    });
+
+    // 2.black을 클릭하면 white를 나타나게 해줘
+
+    black.addEventListener('click', blackControl => {
+      white.style.display = "";
+    });
+
+
+
+
+
+
+      
+
+
+
+    // 이벤트: 어떤일이 일어나는, (돌발)
+    // 이벤트: 유저가 직접 제어 - 상호작용의 시작
+    // DOM API Event 메서드를 사용하는 방법
+    
+    
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Todo List Example</title>
+</head>
+<body>
+  <div id="root"></div>
+  <input id="todo-input" type="text" placeholder="할 일을 입력하세요">
+  <select id="order-select" title="Order Select"></select>
+  <button id="add-button">항목 추가</button>
+  <button id="remove-button">항목 제거</button>
+  <script>
+    let root = document.getElementById('root'); 
+    // body안에 아이디가 root인 div를 초기화 된 변수 root에 할당해줘
+    let addButton = document.getElementById('add-button'); 
+    // 아이디가 add-button인 button태그를 변수 선언한 addButton에 할당해줘
+    let removeButton = document.getElementById('remove-button'); 
+    // 아이디가 remove-button인 button태그를 변수 선언한 removeButton에 할당해줘
+    let todoInput = document.getElementById('todo-input');
+    // 아이디가 todo-input인 input태그를 변수 선언한 todoInput에 할당해줘
+    let orderSelect = document.getElementById('order-select');
+    // 아이디가 order-select인 select태그를 변수 선언한 orderSelect에 할당해줘
+
+    // console.log(orderSelect)
+    let todoItems = []; // 빈 배열
+
+    function updateSelectOptions() {
+      //1. 항목추가와 항목제거 버튼을 클릭했을때 생성되는 option태그들이 몇개씩 추가되는지 식별 가능하게 생성 or 지움
+
+      let length = todoItems.length; // todoItems.length를 초기화된 변수 length에 할당 
+      orderSelect.innerHTML = ''; // 할당된것이 빈 문자열임 
+      for (let i = 0; i < length; i++) {
+        let option = document.createElement('option'); //option태그 만들어줌
+        option.value = i; // 만들어준 option태그의 값을 i로 할당해줌
+        option.text = `항목 ${i + 1}`; // option.value + 1 
+        orderSelect.appendChild(option); //만들어준 option태그를 orderSelect에 자식요소로 추가해줌
+      }
+      //1. 끝
+
+      //2. option태그의 목록생성 관련 (마지막이라는 목록을)
+
+      let lastOption = document.createElement('option'); // option 태그 하나 생성
+      lastOption.value = "마지막"; // lastOption의 값을 마지막이라는 문자열로 할당
+      lastOption.text = "마지막"; // lastOption의 출력되는 텍스트 문자열을 마지막으로 할당
+      orderSelect.appendChild(lastOption); // Adding 'Last' option at the end of the list
+
+      //2. 끝
+    }
+
+    function updateView() {
+      //3. 텍스트창에 텍스트를 입력했을때 추가 할 수있게
+
+      root.innerHTML = ''; //  root에 텍스트를 빈문자열로 할당
+      for (let i = 0; i < todoItems.length; i++) {
+        let itemElement = document.createElement('p'); //p태그를 생성하고 itemElement에 할당
+        itemElement.textContent = `${todoItems[i]}`; //p태그의 텍스트가 입력되는 갯수의 맞게 반복적으로 실행
+        root.appendChild(itemElement); //root의 자식으로 itemElement으로 추가시켜줌
+        // console.log(todoItems);
+      }
+      updateSelectOptions();
+    }
+      //3. 끝
+    function getInputValue() {
+      //4. 3번 텍스트창에 값을 입력했을때 입력값이 나올수있게 
+
+      return todoInput.value.trim(); // todoInput의 값을 양끝 공백을 제거해주고 새로운 문자열로 반환 
+    }
+      //4. 끝
+    function getOrder() {
+
+      //5. 텍스트의 값을 입력하고 추가했을때 항목이 추가됬다는걸 알려주고, 추가된 항목을 다 지우고 나면 마지막이라고 알려주기 위한 조건 
+      let orderValue = orderSelect.value; 
+      // orderValue을 orderSelect.value 값으로 할당 (텍스트창에 값을 입력했을때 값이 추가될수있게)
+      if (orderValue === '마지막') { 
+        return todoItems.length - 1;
+        //orderValue이 마지막이라는 문자열이라면 todoItems.length의 -1을 반환하겠다
+      } else {
+        return parseInt(orderValue);
+        // 그게 아니라면  orderValue을 판단하여 우선적으로 문자열로 변환하고 그 값을 파싱하여 정수나
+        // NaN으로 반환
+      }
+    }
+      //5. 끝
+    function addItem() {
+      //6. 값을 입력했을때 입력값이 출력되서 나올 수 있게 추가 대신 값을 입력안하고 추가 할시 에러가 뜸
+
+      let newItem = getInputValue();
+      let order = getOrder();
+      
+      // console.log(order);
+      if (newItem !== "") {
+        if (order === todoItems.length - 1) {
+          todoItems.push(newItem); // Add at the end
+          // todoItems의 끝 열에 해당되는곳에 newItem을 넣어주겠다 
+        } else {
+          todoItems.splice(order, 0, newItem);
+          // todoItems을 정보를 제거하지는 않고 order에 newItem을 추가하겠다?
+        }
+        updateView();
+        todoInput.value = ''; // Clear input after adding
+      } else {
+        console.error('할 일을 입력해야 합니다.');
+      }
+    }
+      //6. 끝
+
+
+    function removeItem() {
+      //7. 입력된 값이 출력되서 나왔을때 한개씩 지워지게 출력된 값이 없을때 제거할시에 에러가 뜸
+
+      let order = getOrder();
+      if (order >= 0 && order < todoItems.length) {
+        todoItems.splice(order, 1);
+        // 만약 order가 0보다 크면서 같거나, order가 todoItems.length보다 작다면 todoItems order에서 한개의 요소를 지워줘
+        updateView();
+      } else {
+        console.error('유효하지 않은 순서입니다.');
+      }
+    }
+    //7. 끝
+    
+    addButton.addEventListener('click', addItem); 
+    //초기화된 변수에 할당된 addButton을 클릭했을때 addItem함수 실행
+    removeButton.addEventListener('click', removeItem);
+    //초기화된 변수에 할당된 removeButton을 클릭했을때 removeItem함수 실행
+    updateSelectOptions(); // Initialize select options
+
+    // Enter키를 눌렀을때 입력값을 출력
+    // document.addEventListener('keydown',(e) =>{
+    //   const keyname = e.key
+    //   if(keyname === "Enter"){
+    //     addItem();
+    //   }
+    // //  console.log(e.keyCode);
+     
+    // });
+
+    // document.addEventListener('keydown',(e) =>{
+    //   const keyname = e.keyCode
+    //   if(keyname === 13){
+    //     addItem();
+    //   }
+    // //  console.log(e.keyCode);
+     
+    // });
+        
+
+    // // Backspace키를 눌렀을때 입력값을 제거    
+    // document.addEventListener('keyup',(e) =>{
+    //   const keyname = e.key
+    //   if(keyname === "Backspace"){
+    //      removeItem();
+    //     }
+    //     // console.log(e.keyCode);
+    // });
+
+
+
+
+
+    </script>
+</body>
+</html>
+
+    

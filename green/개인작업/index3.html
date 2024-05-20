@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <!-- <p></p>
+    <p></p>
+    <p></p>
+    <p></p> -->
+  </div>
+  <button id="button-click">클릭</button>
+  <script>
+    const root = document.getElementById('root');
+    // console.log(root);
+    for(let i = 0; i < root.children.length; i++){
+      root.children[i].innerHTML = "Hi";
+      root.children[i].style.width = "300px";
+      root.children[i].style.height = "300px";
+      root.children[i].style.border = "3px solid";
+    }
+
+    root.addEventListener('click',() =>{
+      root.children[2].style.background = "orange";
+    });
+
+  </script>
+</body>
+</html>
+
+
+      
+      
+
+   
+    
+
+    

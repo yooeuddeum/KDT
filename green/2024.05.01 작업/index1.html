@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* #root {
+      width: 430px;
+      height: 932px;
+      background-color: #d9d9d9;
+    } */
+    /* #root > div {
+      width: 365px;
+      height: 932px;
+      background-color: #b0b0b0;
+      position: relative;
+    } */
+
+    /* #root > div > button {
+      width: 80px;
+      height: 80px;
+      background-color: #464646;
+      position: absolute;
+      top: 38px;
+      left: 29px;
+    } */
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="child-div">
+      <button></button>
+    </div>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    // console.log(root);
+    const childDiv = document.querySelector('.child-div');
+    // console.log(childDiv);
+    const btn = childDiv.querySelector('button');
+    // console.log(btn);
+
+    root.style.width = "430px";
+    root.style.height = "932px";
+    root.style.background = "#d9d9d9";
+    
+
+    childDiv.style.width = "365px";
+    childDiv.style.height = "932px";
+    childDiv.style.background = "#b0b0b0";
+    childDiv.style.position = "relative";
+    childDiv.style.zIndex = "1";
+    childDiv.style.opacity = "1";
+    
+
+    btn.style.width = "80px";
+    btn.style.height = "80px";
+    btn.style.background = "#464646";
+    btn.style.position = "absolute";
+    btn.style.top = "38px";
+    btn.style.left = "29px";
+  
+        
+    // btn.addEventListener('click', (event) =>{
+
+    //   if(event.target.style.opacity != "0.2"){
+    //     event.target.style.opacity = "0.2";
+    //   }
+    //   else{
+    //     event.target.style.opacity = "1";
+    //   }
+    // });
+
+
+    btn.addEventListener('click', () =>{
+
+      if(childDiv.style.opacity != "0.2"){
+        childDiv.style.opacity = "0.2";
+      }
+      else{
+        childDiv.style.opacity = "1";
+      }
+    });
+    
+    
+    
+ // 초 세팅 후 opacity 조정하기   
+    
+    // // // 전역 변수 
+    // let bClick = true; 
+    // let timeID = null;
+
+
+    // btn.addEventListener('click',() => TransColor(childDiv));
+
+
+    // function TransColor(element){
+      
+    //   bClick = !bClick
+    //   if(timeID != null)
+    //     clearInterval(timeID);
+
+    //   if(bClick == false){
+    //     timeID = setInterval(() => {
+    //       if(element.style.opacity >= 0)
+    //         element.style.opacity = element.style.opacity - 0.1;
+    //       else{
+    //         return;
+    //       }
+    //       console.log(element.style.opacity);
+    //   },500)
+    //  }
+    //  else{
+    //     timeID = setInterval(() => {
+    //     if(element.style.opacity < 1)
+    //       element.style.opacity = element.style.opacity / 1 + 0.1;
+    //     else{
+    //       return;
+    //     }
+    //     console.log(element.style.opacity);
+    // },500);
+    //  }
+    // }
+
+      
+  // ------------------------------------------------------------------------    
+  
+  
+  //   const root = document.getElementById('root');
+  //   // console.log(root);
+  //   root.innerHTML = "10";
+  //   const childDiv = document.createElement('div');
+  //   // console.log(childDiv);
+  //   childDiv.innerHTML = "20";
+  //   const btn = document.createElement('button');
+  //   // console.log(btn);
+  //   btn.innerHTML = "30";
+
+  //   root.appendChild(childDiv);
+  //   childDiv.appendChild(btn);
+
+        
+  //   btn.addEventListener('click',() => {
+      
+  //   childDiv.style.display = "none";
+  // });
+      
+  </script>
+</body>
+</html>
+
+      
+
+
+
+        
+        
+      
+
+
+
+
+
+
+      
+      
+
+
+
+      
+
+
+
+
+
+
+      
+
+
+    
+    

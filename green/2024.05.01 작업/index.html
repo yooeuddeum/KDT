@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <script>
+  function whatWork(inputString){ // 함수명 whatWork이고 매개변수로 inputString이 있음 , 하나의 파라미터 
+   let result = ""; // result라는 변수 선언이 되었지만 값은 빈 문자열 상태
+   let iswhatWorked = false; // iswhatWorked라는 변수 선언이 되었고 값은 false가 할당됨 
+   let space = " "; // space라는 변수 선언이 되었지만 값은 빈 문자열 상태
+   
+   // 설정된 매개변수로 반복문을 실행 i가 0이고 하나의 파라미터보다 작을때까지 1씩 증가
+   for(let i = 0; i < inputString.length; i++){
+    // console.log(inputString)
+
+
+    if(inputString[i] !== space){
+      // console.log(inputString);
+      if(iswhatWorked === true) {
+        result += inputString[i];
+      }else {
+        if(inputString[i] !== space){
+          iswhatWorked = true;
+          result += inputString[i];
+        }
+      }
+    }
+   }
+   return result;
+  }
+  const quotes = "123";
+  const trimmedQuotes = whatWork(quotes);
+  console.log(trimmedQuotes);
+  </script> 
+</body>
+</html>
+   

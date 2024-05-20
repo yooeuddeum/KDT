@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="./index.js"></script>
+  <script>
+    // console.log(studentnames);
+    
+    // body안에 있는 아이디가 root라는 div를 선언한 root 변수 안에 할당해줘
+    const root = document.getElementById('root');
+    // console.log(root);
+
+    // ul이라는 태그를 만들어서 선언한 ul이라는 변수안에 할당해줘
+    const ul = document.createElement('ul');
+    // console.log(ul);
+
+    // 외부 링크로 가져온 선언된 stydentnames라는 변수의 배열로 반복문을 실행할게
+    for(let i = 0; i < studentnames.length; i++){
+      
+      // li라는 태그를 만들어서 선언된 li라는 변수 안에 할당해줘
+      const li = document.createElement('li');
+      // console.log(li);
+
+      // 부모 역할을 하는 root의 자식으로 ul을 추가해줘
+      root.appendChild(ul);
+
+      // li의 부모 역할을 할 ul에 li를 자식으로 추가해줘
+      ul.appendChild(li);
+      // console.log(ul.appendChild(li));
+
+      // li에 텍스트로 외부 링크로 가져온 studentnames라는 배열로 할당해줘
+      li.innerHTML = studentnames[i];
+      // console.log(li.innerHTML)
+    }
+  </script>
+</body>
+</html>
+
+
