@@ -1,13 +1,15 @@
+// 코드 리딩 연습 (뜯어보기)
+
 const app = require("http"); //http서버와 클라이언트를 사용하기 위해
-// console.log(app);
+console.log(app);
 const fs = require("fs"); // fs 모듈로 입 출력 처리
-// console.log(fs);
+console.log(fs);
 const path = require("path"); //파일 및 디렉터리 경로 작업을 위한 유틸리티
 const { error } = require("console");
 const { URLSearchParams } = require("url");
 const { title } = require("process");
 const { json } = require("stream/consumers");
-// console.log(path);
+console.log(path);
 
 const server = app.createServer((req, res) => {
   if (req.method == "GET") {
@@ -19,7 +21,7 @@ const server = app.createServer((req, res) => {
         if (err) {
           // writeHead : 요청에 대한 응답 헤더 // 500 : 3자리의 http 상태코드
           // text/plain은 해당 문서를 플레인 텍스트로 만들어 html 태그를 모두 보여주는 데이터 타입
-          res.writeHead(500, { "Content-Type": "text/plain" });  
+          res.writeHead(500, { "Content-Type": "text/plain" });
           res.end("500 코드는 서버 자체 에러");
           return; // 반환
         }
@@ -48,18 +50,26 @@ const server = app.createServer((req, res) => {
         };
 
         const jsonDataString = json.stringify(jsonData, null, 2);
-        // path -> 파일 이름 또는 파일 설명자 , fs.readfile 함수는 전체 파일을 버퍼링함 
+        // path -> 파일 이름 또는 파일 설명자 , fs.readfile 함수는 전체 파일을 버퍼링함
         // join : 단일 경로로 접근
-        fs.writeFile(path.join(__dirname, "data.json"), jsonDataString, (err)=>{
-          if(err){
-            res.writeHead(500, { "Content-Type": "text/plain" });
-            res.end("500 코드는 서버 자체 에러");
-            return;
+        fs.writeFile(
+          path.join(__dirname, "data.json"),
+          jsonDataString,
+          (err) => {
+            if (err) {
+              res.writeHead(500, { "Content-Type": "text/plain" });
+              res.end("500 코드는 서버 자체 에러");
+              return;
+            }
+            res.writeHead(200, {
+              "Content-Type": "application/json; charset = utf-8",
+            });
+            let jsonResponse = json.stringify({
+              message: "데이터가 성공적으로 저장됨",
+            });
+            res.end(jsonResponse);
           }
-          res.writeHead(200, {"Content-Type": "application/json; charset = utf-8"});
-          let jsonResponse = json.stringify({message:"데이터가 성공적으로 저장됨"});
-          res.end(jsonResponse);
-        });
+        );
       });
     } else {
       res.writeHead(404, { "Content-Type": "text/html; charset = utf-8" });
@@ -71,8 +81,8 @@ const server = app.createServer((req, res) => {
   }
 });
 
-const port = 2020;
-server.listen(port, ()=>{
+const port = 2020; // port
+server.listen(port, () => {
   console.log("서버 가동");
   console.log(`http://localhost:${port}`);
-})
+});
