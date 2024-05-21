@@ -27,9 +27,9 @@ console.log(input);
 
 const colorDiv = document.querySelector(".color_item");
 console.log(colorDiv);
-// for (let i = 0; i < colorDiv.length; i++) {
-//   console.log(colorDiv[i]);
-// }
+for (let i = 0; i < colorDiv.length; i++) {
+  console.log(colorDiv[i]);
+}
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
