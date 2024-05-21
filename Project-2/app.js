@@ -1,22 +1,22 @@
 // 코드 리딩 연습 (뜯어보기)
 
 const app = require("http"); //http서버와 클라이언트를 사용하기 위해
-console.log(app);
+// console.log(app);
 const fs = require("fs"); // fs 모듈로 입 출력 처리
-console.log(fs);
+// console.log(fs);
 const path = require("path"); //파일 및 디렉터리 경로 작업을 위한 유틸리티
 const { error } = require("console");
 const { URLSearchParams } = require("url");
 const { title } = require("process");
 const { json } = require("stream/consumers");
-console.log(path);
+// console.log(path);
 
 const server = app.createServer((req, res) => {
   if (req.method == "GET") {
     //요청한 메소드가 GET방식 일때
     if (req.url == "/") {
       // 요청한 url이 "/"" 일때
-      // path -> 파일 이름 또는 파일 설명자 , fs.readfile 함수는 전체 파일을 버퍼링함 // join : 단일 경로로 접근
+      // path -> 파일 이름 또는 파일 설명자 , fs.readfile() 함수는 전체 파일을 버퍼링함 // join : 단일 경로로 접근
       fs.readFile(path.join(__dirname, "index.html"), (err, data) => {
         if (err) {
           // writeHead : 요청에 대한 응답 헤더 // 500 : 3자리의 http 상태코드
@@ -32,12 +32,15 @@ const server = app.createServer((req, res) => {
       res.writeHead(404, { "Content-Type": "text/html; charset = utf-8" });
       res.end("404 code는 찾을 수 없음");
     }
+
     // POST 방식
   } else if (req.method == "POST") {
     if (req.url === "/submit") {
       let body = "";
       req.on("data", (chunk) => {
         body += chunk.toString();
+         // chunk -> 한 개의 묶여진 정보 , 여러개의 아이템을 묶어 놓은 하나의 덩어리
+         // toString() -> object 객체의 메서드이며 , 해당 object를 표현하는 문자열을 반환
       });
       req.on("end", () => {
         const parseData = new URLSearchParams(body);
@@ -49,6 +52,7 @@ const server = app.createServer((req, res) => {
           content: content,
         };
 
+        // json.stringify() -> 메서드는 javascript값이나 객체를 JSON문자열로 변환
         const jsonDataString = json.stringify(jsonData, null, 2);
         // path -> 파일 이름 또는 파일 설명자 , fs.readfile 함수는 전체 파일을 버퍼링함
         // join : 단일 경로로 접근
