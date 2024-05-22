@@ -57,16 +57,16 @@ const server = app.createServer((req, res) => {
         // path -> 파일 이름 또는 파일 설명자 , fs.readfile 함수는 전체 파일을 버퍼링함
         // join : 단일 경로로 접근
         fs.writeFile(
-          path.join(__dirname, "data.json"),
+          path.join(__dirname, "data.json"), //__dirname : 현재 모듈의 디렉터리 이름 = path.dirname() 같은 의미
           jsonDataString,
           (err) => {
             if (err) {
-              res.writeHead(500, { "Content-Type": "text/plain" });
+              res.writeHead(500, { "Content-Type": "text/plain" }); // 컨텐트 타입을 텍스트 플레인으로 적용
               res.end("500 코드는 서버 자체 에러");
               return;
             }
             res.writeHead(200, {
-              "Content-Type": "application/json; charset = utf-8",
+              "Content-Type": "application/json; charset = utf-8", // 에이잭스 요청에서는 바디에 application/json 사용
             });
             let jsonResponse = json.stringify({
               message: "데이터가 성공적으로 저장됨",
