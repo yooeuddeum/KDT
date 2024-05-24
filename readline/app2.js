@@ -18,30 +18,28 @@ readLine.question("포켓몬스터 이름 작성해주세요 :", function (answe
   // todo : 6. "종료" 라고 말한다면, 질문을 종료하고 결과를 보여준다.
   // todo : 7. 결과는 총 "포켓몬스터 score 개"를 작성하였습니다. 라는 로그를 남겨준다.
 
-    pokemonData.forEach((element) => {
-    if (answer === element) {
-      console.log("포켓몬스터 이름이 존재합니다.");
+  const PokemonList = pokemonData.includes(answer);
 
-      answerData.push(element)
-      // score++;
-      readLine.close();
-      
-    }
-      
-  });
-  console.log(answerData);
-
-  if(answerData.length === score){
-    console.log("포켓몬 데이터가 존재하지 않습니다.");
+  if (PokemonList === true) {
+    console.log("포켓몬이 존재해");
+    answerData.push(answer);
+    score++;
   } 
   else {
-    console.log("포켓몬이 존재 합니다.");
-
-    fs.writeFileSync('./data.json', JSON.stringify(answerData), "utf-8" , (err) => {
-      if(err){
-        console.log("err");
-      }
-    })
+    console.log("포켓몬이 존재하지 않아 다시 입력해줘");
   }
-  readLine.close();
+
+  if (answer === "종료") {
+    console.log(`총 포켓몬스터 ${score}개를 작성하였습니다.`);
+    if (answerData.length > 0) {
+      fs.writeFileSync("./pokdata.json", JSON.stringify(answerData), "utf-8", (err) =>{
+        if(err) {
+          console.log("err");
+        }
+      });
+    }
+    readLine.close();
+    return;
+  }
+
 });
