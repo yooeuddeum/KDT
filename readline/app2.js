@@ -26,7 +26,7 @@ readLine.question("포켓몬스터 이름 작성해주세요 :", function (answe
     score++;
   } 
   else {
-    console.log("포켓몬이 존재하지 않아 다시 입력해줘");
+    console.log("포켓몬이 존재하지 않아 다시 입력해줘!");
   }
 
   if (answer === "종료") {
